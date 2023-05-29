@@ -1,0 +1,6 @@
+package.json
+package-lock.json
+karma.conf.js
+node_modules
+src/app/api/api
+src/app/api/model
