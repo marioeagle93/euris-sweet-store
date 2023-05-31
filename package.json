@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build-api-url": "node fastCreateApi.js url",
+    "build-api": "node fastCreateApi.js",
     "lint": "npx eslint \"src/**/*.{js,ts,tsx,html,css,scss}\" --quiet",
     "lint-fix": "npx eslint \"src/**/*.{js,ts,tsx,html,css,scss}\" --quiet --fix",
     "format": "npx prettier \"src/**/*.{js,jsx,ts,tsx,html,css,scss}\" --write",
