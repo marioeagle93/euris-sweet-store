@@ -29,7 +29,7 @@ var downloadJson = async function () {
   return new Promise((resolve, reject) => {
     try {
       console.log('Start Download Json');
-      const file = fs.createWriteStream(`${SWAGGER_DIR_PATH}/` + 'swagger.yaml');
+      const file = fs.createWriteStream(`${SWAGGER_DIR_PATH}/` + 'sweetstore-swagger.yaml');
       http.get('http://us-central1-test-b7665.cloudfunctions.net/api/docs/', function (response) {
         response.pipe(file);
 
