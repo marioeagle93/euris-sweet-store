@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DefaultService } from './api/api/default.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'euris-sweet-store';
+  idStore = 'ijpxNJLM732vm8AeajMR';
+
+  constructor(private defaultService: DefaultService) {}
+
+  ngOnInit(): void {
+    this.defaultService.storesIdStoreGet(this.idStore).subscribe((res) => {
+      console.log(res);
+    });
+  }
 }

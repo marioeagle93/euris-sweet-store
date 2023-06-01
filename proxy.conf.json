@@ -1,0 +1,8 @@
+{
+  "*": {
+    "target": "http://us-central1-test-b7665.cloudfunctions.net/api/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
