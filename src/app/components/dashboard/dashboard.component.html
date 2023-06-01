@@ -1,3 +1,14 @@
-<div *ngFor="let product of productList">
-  <p-card [header]="product.data.title"> </p-card>
+<h2>Catalogo dei prodotti:</h2>
+<div *ngFor="let product of productList" class="card-wrapper">
+  <p-card [header]="product.data.title" [subheader]="product.data.category">
+    <!-- <ng-template pTemplate="header">
+      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+    </ng-template> -->
+    <p>{{ product.data.description }}</p>
+    <ng-template pTemplate="footer">
+      <!-- <p-button label="Save" icon="pi pi-check"></p-button>
+      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button> -->
+      Prezzo: {{ product.data.price }}€
+    </ng-template>
+  </p-card>
 </div>

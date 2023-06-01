@@ -97,12 +97,43 @@ $transitionDuration: 0.2s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 7rem 2rem 0rem 4rem;
+  padding: 4rem 2rem 0rem 4rem;
   transition: margin-left $transitionDuration;
 }
 
 .layout-main {
   flex: 1 1 auto;
+}
+
+.p-card {
+  background: #ffffff;
+  color: #495057;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+
+  .p-card-body {
+    padding: 1.25rem;
+  }
+
+  .p-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .p-card-subtitle {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+  }
+
+  .p-card-content {
+    padding: 0;
+  }
+
+  .p-card-footer {
+    padding: 1.25rem 0 0 0;
+  }
 }
 
 @media screen and (max-width: 961px) {
