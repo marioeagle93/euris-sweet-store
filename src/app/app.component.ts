@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DefaultService } from './api/api/default.service';
-import { STORE_ID } from './src/app/constants/constants';
+import { STORE_ID } from './constants/constants';
 
 @Component({
   selector: 'app-root',
