@@ -9,6 +9,7 @@ import { STORE_ID } from './constants/constants';
 })
 export class AppComponent implements OnInit {
   storeName: string = '';
+  loading: boolean = true;
 
   constructor(private defaultService: DefaultService) {}
 
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
         // This is actually a bug I had to fix from the API
         this.storeName = res.name;
       }
+      this.loading = false;
     });
   }
 }

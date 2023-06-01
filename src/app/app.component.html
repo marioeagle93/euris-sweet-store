@@ -7,6 +7,8 @@
   <span>{{ storeName }}</span>
 </div>
 
+<app-spinner *ngIf="loading"></app-spinner>
+
 <div class="content" role="main">
   <app-dashboard></app-dashboard>
 </div>
