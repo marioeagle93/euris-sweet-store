@@ -1,11 +1,14 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
   <img width="40" alt="Logo" src="../assets/candy.png" />
-  <span>{{ storeName }}</span>
+  <span class="store-name">{{ storeName }}</span>
 </div>
 
 <app-spinner *ngIf="loading"></app-spinner>
 
-<div class="content" role="main">
-  <app-dashboard></app-dashboard>
+<div class="layout-main-container" role="main">
+  <div class="layout-main">
+    <app-dashboard></app-dashboard>
+  </div>
+  <!-- FOOTER? -->
 </div>
