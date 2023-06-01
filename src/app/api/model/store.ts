@@ -14,4 +14,5 @@ import { StoreData } from './storeData';
 export interface Store { 
     id: string;
     data: StoreData;
+    name?: string; // This is actually a bug I had to fix from the API
 }
