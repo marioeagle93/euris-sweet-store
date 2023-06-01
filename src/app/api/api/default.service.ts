@@ -23,6 +23,7 @@ import { Store } from '../model/store';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import { WrappedProduct } from '../model/wrappedProduct';
 
 
 @Injectable({
@@ -145,9 +146,9 @@ export class DefaultService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<Product>>;
-    public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Product>>>;
-    public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Product>>>;
+    public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe?: 'body', reportProgress?: boolean): Observable<Array<WrappedProduct>>;
+    public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<WrappedProduct>>>;
+    public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<WrappedProduct>>>;
     public storesIdStoreProductsGet(idStore: string, page?: number, elements?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (idStore === null || idStore === undefined) {

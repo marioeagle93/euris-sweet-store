@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DefaultService } from 'src/app/api/api/default.service';
 import { STORE_ID } from '../../constants/constants';
+import { WrappedProduct } from 'src/app/api/model/wrappedProduct';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +11,11 @@ import { STORE_ID } from '../../constants/constants';
 export class DashboardComponent implements OnInit {
   constructor(private defaultService: DefaultService) {}
 
+  productList: Array<WrappedProduct> = [];
+
   ngOnInit(): void {
-    // TODO
-    // this.defaultService.storesIdStoreGet(STORE_ID).subscribe((res) => {
-    //   this.storeName = res.data.name;
-    // });
+    this.defaultService.storesIdStoreProductsGet(STORE_ID).subscribe((res: Array<WrappedProduct>) => {
+      this.productList = res;
+    });
   }
 }

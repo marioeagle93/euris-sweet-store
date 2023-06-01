@@ -10,10 +10,13 @@
  * Do not edit the class manually.
  */
 
-export interface Product {
-    title: string;
-    category: string;
-    price: number;
-    employee: string;
-    description?: string;
+export interface WrappedProduct {
+    id: string;
+    data: {
+      title: string;
+      category: string;
+      price: number;
+      employee: string;
+      description?: string;
+  }
 }
