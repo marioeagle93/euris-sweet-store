@@ -8,7 +8,13 @@
   [modal]="true"
   [closable]="true"
   (onHide)="onClick(false)">
-  TODO CONTENT
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-6 lg:col-4 field-wrapper">
+      <label class="label-input font-16-bold mb-2 ml-1">Categoria</label>
+      <p-dropdown [options]="categoriesList"></p-dropdown>
+    </div>
+  </div>
+
   <ng-template pTemplate="footer">
     <div class="button-wrapper">
       <button pButton pRipple icon="pi pi-check" class="p-button-outlined" label="Aggiungi" (click)="onClick(true)"></button>
@@ -18,3 +24,5 @@
     </div>
   </ng-template>
 </p-dialog>
+
+<app-spinner *ngIf="loading"></app-spinner>

@@ -12,10 +12,22 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
-  imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule, ButtonModule, CardModule, CommonModule, DialogModule, HttpClientModule, ProgressSpinnerModule],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    ButtonModule,
+    CardModule,
+    CommonModule,
+    DialogModule,
+    DropdownModule,
+    HttpClientModule,
+    ProgressSpinnerModule
+  ],
   exports: [SpinnerComponent],
   providers: [],
   bootstrap: [AppComponent]
