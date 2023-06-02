@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,10 +11,11 @@ import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
-  imports: [AppRoutingModule, BrowserModule, ButtonModule, CardModule, CommonModule, HttpClientModule, ProgressSpinnerModule],
+  imports: [AppRoutingModule, BrowserAnimationsModule, BrowserModule, ButtonModule, CardModule, CommonModule, DialogModule, HttpClientModule, ProgressSpinnerModule],
   exports: [SpinnerComponent],
   providers: [],
   bootstrap: [AppComponent]

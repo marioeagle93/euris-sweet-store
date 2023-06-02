@@ -10,6 +10,7 @@ import { STORE_ID } from './constants/constants';
 export class AppComponent implements OnInit {
   storeName: string = '';
   loading: boolean = true;
+  showAddProductDialog: boolean = false;
 
   constructor(private defaultService: DefaultService) {}
 
@@ -21,5 +22,9 @@ export class AppComponent implements OnInit {
       }
       this.loading = false;
     });
+  }
+
+  openAddProductDialog() {
+    this.showAddProductDialog = true;
   }
 }

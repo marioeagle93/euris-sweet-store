@@ -2,7 +2,7 @@
 <div class="toolbar" role="banner">
   <img width="40" alt="Logo" src="../assets/candy.png" />
   <span class="store-name">{{ storeName }}</span>
-  <p-button label="Nuovo Prodotto" icon="pi pi-plus" class="p-button-raised"></p-button>
+  <p-button label="Nuovo Prodotto" icon="pi pi-plus" class="p-button-raised" (click)="openAddProductDialog()"></p-button>
 </div>
 
 <app-spinner *ngIf="loading"></app-spinner>
@@ -12,3 +12,5 @@
     <app-dashboard></app-dashboard>
   </div>
 </div>
+
+<app-add-product-modal [visible]="showAddProductDialog" (visibleChange)="showAddProductDialog = $event"></app-add-product-modal>

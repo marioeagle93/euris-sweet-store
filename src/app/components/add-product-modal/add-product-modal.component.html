@@ -1,1 +1,20 @@
-<p>add-product-modal works!</p>
+<p-dialog
+  header="Nuovo Prodotto"
+  showEffect="fade"
+  [style]="{ width: '450px' }"
+  [breakpoints]="{ '2400px': '50vw', '960px': '90vw' }"
+  styleClass="dialog-popup"
+  [(visible)]="visible"
+  [modal]="true"
+  [closable]="true"
+  (onHide)="onClick(false)">
+  TODO CONTENT
+  <ng-template pTemplate="footer">
+    <div class="button-wrapper">
+      <button pButton pRipple icon="pi pi-check" class="p-button-outlined" label="Aggiungi" (click)="onClick(true)"></button>
+    </div>
+    <div class="button-wrapper">
+      <button pButton pRipple icon="pi pi-times" class="p-button-outlined" label="Annulla" (click)="onClick(false)"></button>
+    </div>
+  </ng-template>
+</p-dialog>
