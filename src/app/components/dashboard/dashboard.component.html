@@ -5,7 +5,7 @@
     <p>Cucinato da: {{ product.data.employee }}.</p>
     <span *ngIf="isCurrencyCorrectlyFormatted(product.data.price)">Prezzo: {{ product.data.price | currency : "EUR" }}</span>
     <ng-template pTemplate="footer">
-      <p-button label="Recensioni" icon="pi pi-check"></p-button>
+      <p-button label="Recensioni" icon="pi pi-check" (click)="handleShowProductReviewsClick(product)"></p-button>
       <p-button
         label="Elimina Prodotto"
         icon="pi pi-times"
@@ -16,6 +16,7 @@
   </p-card>
 </div>
 
+<!-- Dialog Elimina Prodotto -->
 <p-dialog
   header="Elimina Prodotto"
   showEffect="fade"
@@ -24,7 +25,7 @@
   [modal]="true"
   [closable]="true"
   (onHide)="showDeleteProductDialog = false">
-  Sei sicuro di voler procedere con la cancellazione del prodotto "{{ selectedProductToDelete.data.title }}"?
+  Sei sicuro di voler procedere con la cancellazione del prodotto "{{ currentProduct.data.title }}"?
 
   <ng-template pTemplate="footer">
     <div class="button-wrapper">
@@ -32,6 +33,28 @@
     </div>
     <div class="button-wrapper">
       <button pButton pRipple icon="pi pi-times" class="p-button-outlined" label="Annulla" (click)="showDeleteProductDialog = false"></button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<!-- Dialog Recensioni Prodotto -->
+<p-dialog
+  header="Recensioni Prodotto"
+  showEffect="fade"
+  [style]="{ width: '450px' }"
+  [(visible)]="showProductReviewsDialog"
+  [modal]="true"
+  [closable]="true"
+  (onHide)="showProductReviewsDialog = false">
+  <ng-container *ngIf="currentProduct.data.reviews && currentProduct.data.reviews.length > 0; else noReviews">
+    Ci sono {{ currentProduct.data.reviews.length }} recensioni per il prodotto "{{ currentProduct.data.title }}":
+    <!-- TODO Aggiungere carousel per recensioni -->
+  </ng-container>
+  <ng-template #noReviews> Nessuna recensione per il prodotto "{{ currentProduct.data.title }}". </ng-template>
+
+  <ng-template pTemplate="footer">
+    <div class="button-wrapper">
+      <button pButton pRipple icon="pi pi-times" class="p-button-outlined" label="Chiudi" (click)="showProductReviewsDialog = false"></button>
     </div>
   </ng-template>
 </p-dialog>

@@ -18,5 +18,6 @@ export interface WrappedProduct {
       price: number;
       employee: string;
       description?: string;
+      reviews?: string[];
   }
 }

@@ -2,6 +2,10 @@ $fontSize: 10px;
 $borderRadius: 12px;
 $transitionDuration: 0.2s;
 
+body {
+  background-color: #e7e7e7;
+}
+
 .layout-main-container {
   display: flex;
   flex-direction: column;

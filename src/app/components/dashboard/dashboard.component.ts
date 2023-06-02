@@ -10,7 +10,7 @@ import { WrappedProduct } from 'src/app/api/model/wrappedProduct';
 })
 export class DashboardComponent implements OnInit {
   productList: Array<WrappedProduct> = [];
-  selectedProductToDelete: WrappedProduct = {
+  currentProduct: WrappedProduct = {
     id: '',
     data: {
       title: '',
@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
     }
   };
   showDeleteProductDialog: boolean = false;
+  showProductReviewsDialog: boolean = false;
   loading: boolean = false;
 
   constructor(private defaultService: DefaultService) {}
@@ -46,14 +47,19 @@ export class DashboardComponent implements OnInit {
   }
 
   handleDeleteProductClick(product: WrappedProduct) {
-    this.selectedProductToDelete = product;
+    this.currentProduct = product;
     this.showDeleteProductDialog = true;
+  }
+
+  handleShowProductReviewsClick(product: WrappedProduct) {
+    this.currentProduct = product;
+    this.showProductReviewsDialog = true;
   }
 
   deleteProduct() {
     this.loading = true;
     this.showDeleteProductDialog = false;
-    this.defaultService.storesIdStoreProductsIdProductDelete(STORE_ID, this.selectedProductToDelete.id).subscribe((res) => {
+    this.defaultService.storesIdStoreProductsIdProductDelete(STORE_ID, this.currentProduct.id).subscribe((res) => {
       // TODO Aggiungere messaggio popup esito positivo
       this.loading = false;
       this.loadProducts();
