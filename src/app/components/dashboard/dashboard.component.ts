@@ -9,11 +9,26 @@ import { WrappedProduct } from 'src/app/api/model/wrappedProduct';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  productList: Array<WrappedProduct> = [];
+  selectedProductToDelete: WrappedProduct = {
+    id: '',
+    data: {
+      title: '',
+      category: '',
+      price: 0,
+      employee: ''
+    }
+  };
+  showDeleteProductDialog: boolean = false;
+  loading: boolean = false;
+
   constructor(private defaultService: DefaultService) {}
 
-  productList: Array<WrappedProduct> = [];
-
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts() {
     this.defaultService.storesIdStoreProductsGet(STORE_ID).subscribe((res: Array<WrappedProduct>) => {
       this.productList = res;
     });
@@ -28,5 +43,20 @@ export class DashboardComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  handleDeleteProductClick(product: WrappedProduct) {
+    this.selectedProductToDelete = product;
+    this.showDeleteProductDialog = true;
+  }
+
+  deleteProduct() {
+    this.loading = true;
+    this.showDeleteProductDialog = false;
+    this.defaultService.storesIdStoreProductsIdProductDelete(STORE_ID, this.selectedProductToDelete.id).subscribe((res) => {
+      // TODO Aggiungere messaggio popup esito positivo
+      this.loading = false;
+      this.loadProducts();
+    });
   }
 }

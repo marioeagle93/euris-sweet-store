@@ -6,7 +6,32 @@
     <span *ngIf="isCurrencyCorrectlyFormatted(product.data.price)">Prezzo: {{ product.data.price | currency : "EUR" }}</span>
     <ng-template pTemplate="footer">
       <p-button label="Recensioni" icon="pi pi-check"></p-button>
-      <p-button label="Elimina Prodotto" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+      <p-button
+        label="Elimina Prodotto"
+        icon="pi pi-times"
+        (click)="handleDeleteProductClick(product)"
+        styleClass="p-button-secondary"
+        [style]="{ 'margin-left': '.5em' }"></p-button>
     </ng-template>
   </p-card>
 </div>
+
+<p-dialog
+  header="Elimina Prodotto"
+  showEffect="fade"
+  [style]="{ width: '450px' }"
+  [(visible)]="showDeleteProductDialog"
+  [modal]="true"
+  [closable]="true"
+  (onHide)="showDeleteProductDialog = false">
+  Sei sicuro di voler procedere con la cancellazione del prodotto "{{ selectedProductToDelete.data.title }}"?
+
+  <ng-template pTemplate="footer">
+    <div class="button-wrapper">
+      <button pButton pRipple icon="pi pi-check" class="p-button-outlined" label="Elimina" (click)="deleteProduct()"></button>
+    </div>
+    <div class="button-wrapper">
+      <button pButton pRipple icon="pi pi-times" class="p-button-outlined" label="Annulla" (click)="showDeleteProductDialog = false"></button>
+    </div>
+  </ng-template>
+</p-dialog>
