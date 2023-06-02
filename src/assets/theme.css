@@ -1796,8 +1796,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 .p-button {
   color: #fff;
-  background: #007bff;
-  border: 1px solid #007bff;
+  background: #1976d2;
+  border: 1px solid #1976d2;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -1815,17 +1815,17 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 .p-button.p-button-outlined {
   background-color: transparent;
-  color: #007bff;
+  color: #1976d2;
   border: 1px solid;
 }
 .p-button.p-button-outlined:enabled:hover {
   background: rgba(0, 123, 255, 0.04);
-  color: #007bff;
+  color: #1976d2;
   border: 1px solid;
 }
 .p-button.p-button-outlined:enabled:active {
   background: rgba(0, 123, 255, 0.16);
-  color: #007bff;
+  color: #1976d2;
   border: 1px solid;
 }
 .p-button.p-button-outlined.p-button-plain {
@@ -1842,17 +1842,17 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 .p-button.p-button-text {
   background-color: transparent;
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-button.p-button-text:enabled:hover {
   background: rgba(0, 123, 255, 0.04);
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-button.p-button-text:enabled:active {
   background: rgba(0, 123, 255, 0.16);
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-button.p-button-text.p-button-plain {
@@ -1891,7 +1891,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   min-width: 1rem;
   height: 1rem;
   line-height: 1rem;
-  color: #007bff;
+  color: #1976d2;
   background-color: #fff;
 }
 .p-button.p-button-raised {
@@ -2353,7 +2353,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   color: #dc3545;
 }
 .p-button.p-button-link {
-  color: #007bff;
+  color: #1976d2;
   background: transparent;
   border: transparent;
 }
@@ -2372,7 +2372,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 .p-button.p-button-link:enabled:active {
   background: transparent;
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-speeddial-button.p-button.p-button-icon-only {
@@ -4475,9 +4475,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .p-dialog .p-dialog-header {
-  border-bottom: 1px solid #e9ecef;
-  background: #fff;
-  color: #212529;
+  background-color: #1976d2;
+  color: white;
   padding: 1rem;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -4489,7 +4488,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 .p-dialog .p-dialog-header .p-dialog-header-icon {
   width: 2rem;
   height: 2rem;
-  color: #6c757d;
+  color: white;
   border: 0 none;
   background: transparent;
   border-radius: 50%;
@@ -4497,7 +4496,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   margin-right: 0.5rem;
 }
 .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
-  color: #495057;
+  color: white;
   border-color: transparent;
   background: transparent;
 }
