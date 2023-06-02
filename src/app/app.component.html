@@ -2,7 +2,9 @@
 <div class="toolbar" role="banner">
   <img width="40" alt="Logo" src="../assets/candy.png" />
   <span class="store-name">{{ storeName }}</span>
-  <p-button label="Nuovo Prodotto" icon="pi pi-plus" class="p-button-raised" (click)="openAddProductDialog()"></p-button>
+  <div class="topbar-button-wrapper">
+    <p-button label="Nuovo Prodotto" icon="pi pi-plus" class="p-button-raised" (click)="openAddProductDialog()"></p-button>
+  </div>
 </div>
 
 <app-spinner *ngIf="loading"></app-spinner>

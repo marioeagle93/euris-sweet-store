@@ -1,7 +1,7 @@
 .p-button {
   color: #fff;
-  background: #007bff;
-  border: 1px solid #007bff;
+  background: #1976d2;
+  border: 1px solid #1976d2;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -19,17 +19,17 @@
 }
 .p-button.p-button-outlined {
   background-color: transparent;
-  color: #007bff;
+  color: #1976d2;
   border: 1px solid;
 }
 .p-button.p-button-outlined:enabled:hover {
   background: rgba(0, 123, 255, 0.04);
-  color: #007bff;
+  color: #1976d2;
   border: 1px solid;
 }
 .p-button.p-button-outlined:enabled:active {
   background: rgba(0, 123, 255, 0.16);
-  color: #007bff;
+  color: #1976d2;
   border: 1px solid;
 }
 .p-button.p-button-outlined.p-button-plain {
@@ -46,17 +46,17 @@
 }
 .p-button.p-button-text {
   background-color: transparent;
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-button.p-button-text:enabled:hover {
   background: rgba(0, 123, 255, 0.04);
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-button.p-button-text:enabled:active {
   background: rgba(0, 123, 255, 0.16);
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
 .p-button.p-button-text.p-button-plain {
@@ -95,7 +95,7 @@
   min-width: 1rem;
   height: 1rem;
   line-height: 1rem;
-  color: #007bff;
+  color: #1976d2;
   background-color: #fff;
 }
 .p-button.p-button-raised {
@@ -557,7 +557,7 @@
   color: #dc3545;
 }
 .p-button.p-button-link {
-  color: #007bff;
+  color: #1976d2;
   background: transparent;
   border: transparent;
 }
@@ -576,6 +576,6 @@
 }
 .p-button.p-button-link:enabled:active {
   background: transparent;
-  color: #007bff;
+  color: #1976d2;
   border-color: transparent;
 }
