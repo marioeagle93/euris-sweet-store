@@ -1,16 +1,12 @@
 <h2>Catalogo dei prodotti:</h2>
 <div *ngFor="let product of productList" class="card-wrapper">
   <p-card [header]="product.data.title" [subheader]="'Categoria: ' + product.data.category">
-    <!-- <ng-template pTemplate="header">
-      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
-    </ng-template> -->
     <p>{{ product.data.description }}</p>
+    <p>Cucinato da: {{ product.data.employee }}.</p>
+    <span *ngIf="isCurrencyCorrectlyFormatted(product.data.price)">Prezzo: {{ product.data.price | currency : "EUR" }}</span>
     <ng-template pTemplate="footer">
-      <!-- <p-button label="Save" icon="pi pi-check"></p-button>
-      <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button> -->
-
-      <p>Cucinato con cura da {{ product.data.employee }}.</p>
-      Prezzo: {{ product.data.price }}€
+      <p-button label="Recensioni" icon="pi pi-check"></p-button>
+      <p-button label="Elimina Prodotto" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
     </ng-template>
   </p-card>
 </div>

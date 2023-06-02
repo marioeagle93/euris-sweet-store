@@ -18,4 +18,15 @@ export class DashboardComponent implements OnInit {
       this.productList = res;
     });
   }
+
+  isCurrencyCorrectlyFormatted(price: any): boolean {
+    if (typeof price === 'number') {
+      if (price >= 0) {
+        return true;
+      }
+    } else if (typeof price === 'string' && typeof parseInt(price) === 'number' && parseInt(price) > 0) {
+      return true;
+    }
+    return false;
+  }
 }

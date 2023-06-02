@@ -8,10 +8,12 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, SpinnerComponent],
-  imports: [AppRoutingModule, BrowserModule, CardModule, CommonModule, HttpClientModule, ProgressSpinnerModule],
+  declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
+  imports: [AppRoutingModule, BrowserModule, ButtonModule, CardModule, CommonModule, HttpClientModule, ProgressSpinnerModule],
   exports: [SpinnerComponent],
   providers: [],
   bootstrap: [AppComponent]
