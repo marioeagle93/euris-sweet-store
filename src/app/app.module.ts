@@ -14,6 +14,10 @@ import { AddProductModalComponent } from './components/add-product-modal/add-pro
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { CarouselModule } from 'primeng/carousel';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
@@ -27,8 +31,12 @@ import { CarouselModule } from 'primeng/carousel';
     CommonModule,
     DialogModule,
     DropdownModule,
+    FormsModule,
     HttpClientModule,
-    ProgressSpinnerModule
+    InputTextareaModule,
+    InputTextModule,
+    ProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   exports: [SpinnerComponent],
   providers: [],

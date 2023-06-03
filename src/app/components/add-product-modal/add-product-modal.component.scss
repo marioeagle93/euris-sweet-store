@@ -1,0 +1,17 @@
+:host ::ng-deep .field-wrapper {
+  p {
+    margin: 1em 0 0.2em 0;
+  }
+  .p-inputtext,
+  .p-dropdown {
+    width: 100%;
+  }
+  textarea {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+.fields-section {
+  padding: 0 1.5em;
+}

@@ -1,16 +1,33 @@
 <p-dialog
   header="Nuovo Prodotto"
   showEffect="fade"
-  [style]="{ width: '450px' }"
+  [style]="{ width: '450px', height: '500px' }"
   [breakpoints]="{ '2400px': '50vw', '1280px': '70vw', '960px': '90vw' }"
   [(visible)]="visible"
   [modal]="true"
   [closable]="true"
   (onHide)="onClick(false)">
-  <div class="grid p-fluid">
-    <div class="col-12 md:col-6 lg:col-4 field-wrapper">
-      <label class="label-input font-16-bold mb-2 ml-1">Categoria</label>
-      <p-dropdown [options]="categoriesList"></p-dropdown>
+  <!-- Fields Section -->
+  <div class="fields-section">
+    <div class="field-wrapper">
+      <p>Nome del prodotto</p>
+      <input type="text" pInputText [(ngModel)]="newProduct.title" />
+    </div>
+    <div class="field-wrapper">
+      <p>Categoria</p>
+      <p-dropdown [options]="categoriesList" [(ngModel)]="newProduct.category"></p-dropdown>
+    </div>
+    <div class="field-wrapper">
+      <p>Prezzo</p>
+      <input type="text" pInputText [(ngModel)]="newProduct.price" />
+    </div>
+    <div class="field-wrapper">
+      <p>Impiegato</p>
+      <p-dropdown [options]="categoriesList" [(ngModel)]="newProduct.employee"></p-dropdown>
+    </div>
+    <div class="field-wrapper">
+      <p>Descrizione</p>
+      <textarea pInputTextarea [(ngModel)]="newProduct.description"></textarea>
     </div>
   </div>
 
