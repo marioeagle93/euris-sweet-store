@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { DefaultService } from 'src/app/api/api/default.service';
 import { Product } from 'src/app/api/model/product';
 import { STORE_ID } from 'src/app/constants/constants';
@@ -10,7 +11,7 @@ import { STORE_ID } from 'src/app/constants/constants';
 })
 export class AddProductModalComponent implements OnInit {
   private _visible: boolean = false;
-  loading: boolean = true;
+  loading: boolean = false;
   categoriesList: string[] = [];
   newProduct: Product = {
     title: '',
@@ -19,6 +20,8 @@ export class AddProductModalComponent implements OnInit {
     employee: '',
     description: ''
   };
+
+  @Input() employees: Array<string> = [];
 
   @Input()
   set visible(value: boolean) {
@@ -34,21 +37,31 @@ export class AddProductModalComponent implements OnInit {
 
   public onClick(confirm: boolean): void {
     this.visible = false;
+    if (confirm) {
+      this.addNewProduct();
+    }
   }
 
-  constructor(private defaultService: DefaultService) {}
+  constructor(private defaultService: DefaultService, private messageService: MessageService) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.defaultService.storesIdStoreStatsCategoriesGet(STORE_ID).subscribe((res) => {
-      // TODO
       this.loading = false;
       this.categoriesList = res.map((el) => el.category);
     });
   }
 
   addNewProduct(): void {
+    this.loading = true;
     this.defaultService.storesIdStoreProductsPost(this.newProduct, STORE_ID).subscribe((res) => {
-      // TODO
+      this.loading = false;
+      this.messageService.add({
+        severity: 'success',
+        life: 5000,
+        summary: 'Prodotto Creato',
+        detail: 'Il prodotto "' + this.newProduct.title + '" è stato aggiunto correttamente.'
+      });
     });
   }
 }

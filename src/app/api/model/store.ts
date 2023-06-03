@@ -15,4 +15,5 @@ export interface Store {
     id: string;
     data: StoreData;
     name?: string;
+    employees?: Array<string>;
 }

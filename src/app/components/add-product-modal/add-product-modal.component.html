@@ -19,11 +19,11 @@
     </div>
     <div class="field-wrapper">
       <p>Prezzo</p>
-      <input type="text" pInputText [(ngModel)]="newProduct.price" />
+      <p-inputNumber [(ngModel)]="newProduct.price" mode="currency" currency="EUR" locale="it-IT"> </p-inputNumber>
     </div>
     <div class="field-wrapper">
       <p>Impiegato</p>
-      <p-dropdown [options]="categoriesList" [(ngModel)]="newProduct.employee"></p-dropdown>
+      <p-dropdown [options]="employees" [(ngModel)]="newProduct.employee"></p-dropdown>
     </div>
     <div class="field-wrapper">
       <p>Descrizione</p>

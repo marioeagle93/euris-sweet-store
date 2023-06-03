@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   storeName: string = '';
   loading: boolean = true;
   showAddProductDialog: boolean = false;
+  employees: Array<string> = [];
 
   constructor(private defaultService: DefaultService) {}
 
@@ -18,6 +19,9 @@ export class AppComponent implements OnInit {
     this.defaultService.storesIdStoreGet(STORE_ID).subscribe((res) => {
       if (res?.name) {
         this.storeName = res.name;
+      }
+      if (res?.employees) {
+        this.employees = res.employees;
       }
       this.loading = false;
     });

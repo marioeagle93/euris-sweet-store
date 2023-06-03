@@ -22,6 +22,7 @@ import { MessageService } from 'primeng/api';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
@@ -37,6 +38,7 @@ import { ToastModule } from 'primeng/toast';
     DropdownModule,
     FormsModule,
     HttpClientModule,
+    InputNumberModule,
     InputTextareaModule,
     InputTextModule,
     MessageModule,
