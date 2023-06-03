@@ -1,10 +1,7 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img width="40" alt="Logo" src="../assets/candy.png" />
-  <span class="store-name">{{ storeName }}</span>
-  <div class="topbar-button-wrapper">
-    <p-button label="Nuovo Prodotto" icon="pi pi-plus" class="p-button-raised" (click)="openAddProductDialog()"></p-button>
-  </div>
+  <img width="40" alt="Logo" src="../assets/candy.png" pTooltip="Cambia visualizzazione" />
+  <span class="store-name" pTooltip="Cambia visualizzazione">{{ storeName }}</span>
 </div>
 
 <p-toast position="bottom-right" [baseZIndex]="10">
@@ -25,3 +22,7 @@
 </div>
 
 <app-add-product-modal [visible]="showAddProductDialog" (visibleChange)="showAddProductDialog = $event" [employees]="employees"></app-add-product-modal>
+
+<p-button icon="pi pi-sync" (click)="openAddProductDialog()" class="switch-view-fixed-button"></p-button>
+<p-button icon="pi pi-chart-pie" (click)="openAddProductDialog()" class="chart-fixed-button"></p-button>
+<p-button icon="pi pi-plus" (click)="openAddProductDialog()" class="add-product-fixed-button"></p-button>

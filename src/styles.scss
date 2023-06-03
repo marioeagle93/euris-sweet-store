@@ -60,8 +60,20 @@ body {
   display: inline-block;
 }
 
-.topbar-button-wrapper {
+.add-product-fixed-button {
   position: fixed;
-  top: 10px;
-  right: 1.5rem;
+  bottom: 15px;
+  right: 15px;
+}
+
+.chart-fixed-button {
+  position: fixed;
+  bottom: 60px;
+  right: 15px;
+}
+
+.switch-view-fixed-button {
+  position: fixed;
+  bottom: 105px;
+  right: 15px;
 }
