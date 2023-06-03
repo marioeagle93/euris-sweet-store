@@ -23,6 +23,30 @@
 
 <app-add-product-modal [visible]="showAddProductDialog" (visibleChange)="showAddProductDialog = $event" [employees]="employees"></app-add-product-modal>
 
-<p-button icon="pi pi-sync" (click)="openAddProductDialog()" class="switch-view-fixed-button"></p-button>
-<p-button icon="pi pi-chart-pie" (click)="openAddProductDialog()" class="chart-fixed-button"></p-button>
-<p-button icon="pi pi-plus" (click)="openAddProductDialog()" class="add-product-fixed-button"></p-button>
+<!-- Pulsanti di operatività fissati in basso a destra -->
+<p-button
+  icon="pi pi-sync"
+  [label]="switchViewLabel"
+  (mouseenter)="switchViewLabel = 'Cambia visualizzazione'"
+  (mouseleave)="switchViewLabel = ''"
+  (click)="switchView()"
+  class="switch-view-fixed-button"
+  styleClass="p-button-rounded p-button-raised"></p-button>
+
+<p-button
+  icon="pi pi-chart-pie"
+  [label]="showChartLabel"
+  (mouseenter)="showChartLabel = 'Mostra grafico'"
+  (mouseleave)="showChartLabel = ''"
+  (click)="openChartDialog()"
+  class="chart-fixed-button"
+  styleClass="p-button-rounded p-button-raised"></p-button>
+
+<p-button
+  icon="pi pi-plus"
+  [label]="addProductLabel"
+  (mouseenter)="addProductLabel = 'Aggiungi Prodotto'"
+  (mouseleave)="addProductLabel = ''"
+  (click)="openAddProductDialog()"
+  class="add-product-fixed-button"
+  styleClass="p-button-rounded p-button-raised"></p-button>

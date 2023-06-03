@@ -11,7 +11,11 @@ export class AppComponent implements OnInit {
   storeName: string = '';
   loading: boolean = true;
   showAddProductDialog: boolean = false;
+  showChartDialog: boolean = false;
   employees: Array<string> = [];
+  switchViewLabel: string = '';
+  showChartLabel: string = '';
+  addProductLabel: string = '';
 
   constructor(private defaultService: DefaultService) {}
 
@@ -29,5 +33,13 @@ export class AppComponent implements OnInit {
 
   openAddProductDialog() {
     this.showAddProductDialog = true;
+  }
+
+  openChartDialog() {
+    this.showChartDialog = true;
+  }
+
+  switchView() {
+    // TODO
   }
 }
