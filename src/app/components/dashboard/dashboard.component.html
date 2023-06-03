@@ -42,13 +42,18 @@
   header="Recensioni Prodotto"
   showEffect="fade"
   [style]="{ width: '450px' }"
+  [breakpoints]="{ '2400px': '40vw', '1280px': '50', '960px': '70vw' }"
   [(visible)]="showProductReviewsDialog"
   [modal]="true"
   [closable]="true"
   (onHide)="showProductReviewsDialog = false">
   <ng-container *ngIf="currentProduct.data.reviews && currentProduct.data.reviews.length > 0; else noReviews">
-    Ci sono {{ currentProduct.data.reviews.length }} recensioni per il prodotto "{{ currentProduct.data.title }}":
-    <!-- TODO Aggiungere carousel per recensioni -->
+    <p class="reviews-number-text">Ci sono {{ currentProduct.data.reviews.length }} recensioni per il prodotto "{{ currentProduct.data.title }}":</p>
+    <p-carousel [value]="currentProduct.data.reviews" [numVisible]="1" [numScroll]="1">
+      <ng-template let-review pTemplate="item">
+        <p>“{{ review }}”</p>
+      </ng-template>
+    </p-carousel>
   </ng-container>
   <ng-template #noReviews> Nessuna recensione per il prodotto "{{ currentProduct.data.title }}". </ng-template>
 

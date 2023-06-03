@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
@@ -22,6 +23,7 @@ import { DropdownModule } from 'primeng/dropdown';
     BrowserModule,
     ButtonModule,
     CardModule,
+    CarouselModule,
     CommonModule,
     DialogModule,
     DropdownModule,

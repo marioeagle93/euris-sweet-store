@@ -2713,6 +2713,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   border-color: transparent;
   color: #dc3545;
 }
+
 .p-carousel .p-carousel-content .p-carousel-prev,
 .p-carousel .p-carousel-content .p-carousel-next {
   width: 2rem;
@@ -2721,41 +2722,41 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   border: 0 none;
   background: transparent;
   border-radius: 50%;
-  transition: box-shadow 0.15s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   margin: 0.5rem;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:enabled:hover,
 .p-carousel .p-carousel-content .p-carousel-next:enabled:hover {
-  color: #495057;
+  color: #343a40;
   border-color: transparent;
-  background: transparent;
+  background: #e9ecef;
 }
 .p-carousel .p-carousel-content .p-carousel-prev:focus,
 .p-carousel .p-carousel-content .p-carousel-next:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem #cce7df;
 }
 .p-carousel .p-carousel-indicators {
-  padding: 1rem;
+  display: none;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button {
-  background-color: #e9ecef;
+  background-color: #ced4da;
   width: 2rem;
   height: 0.5rem;
-  transition: box-shadow 0.15s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   border-radius: 0;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator button:hover {
-  background: #dee2e6;
+  background: #adb5bd;
 }
 .p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background: #007bff;
-  color: #fff;
+  background: #eef2ff;
+  color: #01875f;
 }
 .p-datatable .p-paginator-top {
   border-width: 1px 0 0 0;
