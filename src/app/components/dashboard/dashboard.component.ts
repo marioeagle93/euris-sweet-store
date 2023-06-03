@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultService } from 'src/app/api/api/default.service';
 import { STORE_ID } from '../../constants/constants';
 import { WrappedProduct } from 'src/app/api/model/wrappedProduct';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,14 +24,16 @@ export class DashboardComponent implements OnInit {
   showProductReviewsDialog: boolean = false;
   loading: boolean = false;
 
-  constructor(private defaultService: DefaultService) {}
+  constructor(private defaultService: DefaultService, private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.loadProducts();
   }
 
   loadProducts() {
+    this.loading = true;
     this.defaultService.storesIdStoreProductsGet(STORE_ID).subscribe((res: Array<WrappedProduct>) => {
+      this.loading = false;
       this.productList = res;
     });
   }
@@ -60,7 +63,12 @@ export class DashboardComponent implements OnInit {
     this.loading = true;
     this.showDeleteProductDialog = false;
     this.defaultService.storesIdStoreProductsIdProductDelete(STORE_ID, this.currentProduct.id).subscribe((res) => {
-      // TODO Aggiungere messaggio popup esito positivo
+      this.messageService.add({
+        severity: 'success',
+        life: 5000,
+        summary: 'Prodotto eliminato',
+        detail: 'Il prodotto "' + this.currentProduct.data.title + '" è stato eliminato correttamente.'
+      });
       this.loading = false;
       this.loadProducts();
     });

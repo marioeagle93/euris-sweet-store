@@ -5974,7 +5974,7 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 .p-toast .p-toast-message .p-toast-icon-close {
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border: none;
   background: transparent;
   transition: box-shadow 0.15s;
 }

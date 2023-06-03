@@ -5,10 +5,10 @@
     <p>Cucinato da: {{ product.data.employee }}.</p>
     <span *ngIf="isCurrencyCorrectlyFormatted(product.data.price)">Prezzo: {{ product.data.price | currency : "EUR" }}</span>
     <ng-template pTemplate="footer">
-      <p-button label="Recensioni" icon="pi pi-check" (click)="handleShowProductReviewsClick(product)"></p-button>
+      <p-button label="Recensioni" icon="pi pi-star" (click)="handleShowProductReviewsClick(product)"></p-button>
       <p-button
         label="Elimina Prodotto"
-        icon="pi pi-times"
+        icon="pi pi-trash"
         (click)="handleDeleteProductClick(product)"
         styleClass="p-button-secondary"
         [style]="{ 'margin-left': '.5em' }"></p-button>
@@ -29,7 +29,7 @@
 
   <ng-template pTemplate="footer">
     <div class="button-wrapper">
-      <button pButton pRipple icon="pi pi-check" class="p-button-outlined" label="Elimina" (click)="deleteProduct()"></button>
+      <button pButton pRipple icon="pi pi-trash" class="p-button-outlined" label="Elimina" (click)="deleteProduct()"></button>
     </div>
     <div class="button-wrapper">
       <button pButton pRipple icon="pi pi-times" class="p-button-outlined" label="Annulla" (click)="showDeleteProductDialog = false"></button>

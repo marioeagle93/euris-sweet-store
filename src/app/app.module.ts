@@ -18,6 +18,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MessageService } from 'primeng/api';
+import { MessageModule } from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
@@ -35,11 +39,14 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     HttpClientModule,
     InputTextareaModule,
     InputTextModule,
+    MessageModule,
+    MessagesModule,
     ProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ],
   exports: [SpinnerComponent],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

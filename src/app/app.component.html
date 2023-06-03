@@ -7,6 +7,15 @@
   </div>
 </div>
 
+<p-toast position="bottom-right" [baseZIndex]="10">
+  <ng-template let-message pTemplate="message">
+    <div class="p-toast-message-text">
+      <div class="p-toast-summary">{{ message.summary }}</div>
+      <div class="p-toast-detail" [innerHtml]="message.detail"></div>
+    </div>
+  </ng-template>
+</p-toast>
+
 <app-spinner *ngIf="loading"></app-spinner>
 
 <div class="layout-main-container" role="main">

@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.defaultService.storesIdStoreGet(STORE_ID).subscribe((res) => {
       if (res?.name) {
-        // This is actually a bug I had to fix from the API
         this.storeName = res.name;
       }
       this.loading = false;
