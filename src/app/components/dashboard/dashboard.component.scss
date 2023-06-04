@@ -17,3 +17,13 @@
     }
   }
 }
+
+.fixed-height-description {
+  max-height: 100px;
+  min-height: 100px;
+  overflow-y: auto;
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+  background-color: aliceblue;
+  padding: 0 5px;
+}
