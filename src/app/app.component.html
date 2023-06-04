@@ -17,7 +17,7 @@
 
 <div class="layout-main-container" role="main">
   <div class="layout-main">
-    <app-dashboard (productListChange)="updateProductCategoryRatio($event)"></app-dashboard>
+    <app-dashboard [showAsGrid]="showAsGrid" (productListChange)="updateProductCategoryRatio($event)"></app-dashboard>
   </div>
 </div>
 

@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   loading: boolean = true;
   showAddProductDialog: boolean = false;
   showChartDialog: boolean = false;
+  showAsGrid: boolean = false;
   employees: Array<string> = [];
   switchViewLabel: string = '';
   showChartLabel: string = '';
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   switchView() {
-    // TODO
+    this.showAsGrid = !this.showAsGrid;
   }
 
   updateProductCategoryRatio(productList: Array<WrappedProduct>) {

@@ -1,19 +1,21 @@
 <h2>Catalogo dei prodotti:</h2>
-<div *ngFor="let product of productList" class="card-wrapper">
-  <p-card [header]="product.data.title" [subheader]="'Categoria: ' + product.data.category">
-    <p>{{ product.data.description }}</p>
-    <p>Cucinato da: {{ product.data.employee }}.</p>
-    <span *ngIf="isCurrencyCorrectlyFormatted(product.data.price)">Prezzo: {{ product.data.price | currency : "EUR" }}</span>
-    <ng-template pTemplate="footer">
-      <p-button label="Recensioni" icon="pi pi-star" (click)="handleShowProductReviewsClick(product)"></p-button>
-      <p-button
-        label="Elimina Prodotto"
-        icon="pi pi-trash"
-        (click)="handleDeleteProductClick(product)"
-        styleClass="p-button-secondary"
-        [style]="{ 'margin-left': '.5em' }"></p-button>
-    </ng-template>
-  </p-card>
+<div class="grid">
+  <div *ngFor="let product of productList" class="card-wrapper" [ngClass]="showAsGrid ? 'col-4' : 'col-12'">
+    <p-card [header]="product.data.title" [subheader]="'Categoria: ' + product.data.category">
+      <p>{{ product.data.description }}</p>
+      <p>Cucinato da: {{ product.data.employee }}.</p>
+      <span *ngIf="isCurrencyCorrectlyFormatted(product.data.price)">Prezzo: {{ product.data.price | currency : "EUR" }}</span>
+      <ng-template pTemplate="footer">
+        <p-button label="Recensioni" icon="pi pi-star" (click)="handleShowProductReviewsClick(product)"></p-button>
+        <p-button
+          label="Elimina Prodotto"
+          icon="pi pi-trash"
+          (click)="handleDeleteProductClick(product)"
+          styleClass="p-button-secondary"
+          [style]="{ 'margin-left': '.5em' }"></p-button>
+      </ng-template>
+    </p-card>
+  </div>
 </div>
 
 <!-- Dialog Elimina Prodotto -->
