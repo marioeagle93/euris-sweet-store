@@ -5,3 +5,15 @@
 .reviews-number-text {
   margin: 1em 0;
 }
+
+@media screen and (max-width: 769px) {
+  :host ::ng-deep .card-wrapper {
+    .p-card-footer {
+      .p-button {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-top: 0.5em;
+      }
+    }
+  }
+}
