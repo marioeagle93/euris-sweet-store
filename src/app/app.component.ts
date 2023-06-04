@@ -19,9 +19,8 @@ export class AppComponent implements OnInit {
   addProductLabel: string = '';
 
   // Chart Values
-  // TODO
-  chartData: any | undefined;
-  chartOptions: any | undefined;
+  chartData: any;
+  chartOptions: any;
 
   constructor(private defaultService: DefaultService) {}
 
@@ -70,8 +69,8 @@ export class AppComponent implements OnInit {
       datasets: [
         {
           data: [...categoryCountMap.values()],
-          backgroundColor: ['red', 'green', 'yellow', 'grey', 'blue'],
-          label: 'Rapporto Prodotti per Categoria'
+          backgroundColor: ['#BA274A', '#48E5C2', '#2191FB', '#F3D3BD', '#522A27'],
+          label: 'Prodotti per Categoria'
         }
       ],
       labels: [...categoryCountMap.keys()]
