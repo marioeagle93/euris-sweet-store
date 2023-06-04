@@ -77,3 +77,9 @@ body {
   bottom: 105px;
   right: 15px;
 }
+
+@media screen and (max-width: 960px) {
+  .switch-view-fixed-button {
+    display: none;
+  }
+}
