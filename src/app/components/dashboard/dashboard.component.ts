@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DefaultService } from 'src/app/api/api/default.service';
 import { STORE_ID } from '../../constants/constants';
 import { WrappedProduct } from 'src/app/api/model/wrappedProduct';
@@ -10,6 +10,8 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  @Output() productListChange = new EventEmitter<Array<WrappedProduct>>();
+
   productList: Array<WrappedProduct> = [];
   currentProduct: WrappedProduct = {
     id: '',
@@ -35,6 +37,7 @@ export class DashboardComponent implements OnInit {
     this.defaultService.storesIdStoreProductsGet(STORE_ID).subscribe((res: Array<WrappedProduct>) => {
       this.loading = false;
       this.productList = res;
+      this.productListChange.emit(res);
     });
   }
 

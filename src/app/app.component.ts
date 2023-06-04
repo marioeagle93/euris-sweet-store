@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DefaultService } from './api/api/default.service';
 import { STORE_ID } from './constants/constants';
+import { WrappedProduct } from './api/model/wrappedProduct';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,11 @@ export class AppComponent implements OnInit {
   switchViewLabel: string = '';
   showChartLabel: string = '';
   addProductLabel: string = '';
+
+  // Chart Values
+  // TODO
+  chartData: any | undefined;
+  chartOptions: any | undefined;
 
   constructor(private defaultService: DefaultService) {}
 
@@ -41,5 +47,51 @@ export class AppComponent implements OnInit {
 
   switchView() {
     // TODO
+  }
+
+  updateProductCategoryRatio(productList: Array<WrappedProduct>) {
+    const categoryCountMap: Map<string, number> = new Map();
+
+    productList.forEach((product) => {
+      const category = product?.data?.category;
+      if (category) {
+        if (categoryCountMap.get(category)) {
+          // Gestisco il caso in cui la categoria è gia presente nella mappa aumentando la count
+          const previousCount = categoryCountMap.get(category);
+          categoryCountMap.set(category, previousCount ? previousCount + 1 : 1);
+        } else {
+          // Gestisco il caso in cui la categoria NON è presente nella mappa
+          categoryCountMap.set(category, 1);
+        }
+      }
+    });
+
+    this.chartData = {
+      datasets: [
+        {
+          data: [...categoryCountMap.values()],
+          backgroundColor: ['red', 'green', 'yellow', 'grey', 'blue'],
+          label: 'Rapporto Prodotti per Categoria'
+        }
+      ],
+      labels: [...categoryCountMap.keys()]
+    };
+
+    this.chartOptions = {
+      plugins: {
+        legend: {
+          labels: {
+            color: 'darkgray'
+          }
+        }
+      },
+      scales: {
+        r: {
+          grid: {
+            color: 'gray'
+          }
+        }
+      }
+    };
   }
 }

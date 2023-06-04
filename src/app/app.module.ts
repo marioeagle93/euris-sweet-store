@@ -23,6 +23,7 @@ import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, SpinnerComponent, AddProductModalComponent],
@@ -33,6 +34,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     ButtonModule,
     CardModule,
     CarouselModule,
+    ChartModule,
     CommonModule,
     DialogModule,
     DropdownModule,

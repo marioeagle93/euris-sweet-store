@@ -17,10 +17,31 @@
 
 <div class="layout-main-container" role="main">
   <div class="layout-main">
-    <app-dashboard></app-dashboard>
+    <app-dashboard (productListChange)="updateProductCategoryRatio($event)"></app-dashboard>
   </div>
 </div>
 
+<!-- Dialog Visualizzazione Grafico -->
+<p-dialog
+  header="Grafico Prodotti"
+  showEffect="fade"
+  [style]="{ width: '450px' }"
+  [breakpoints]="{ '2400px': '40vw', '1280px': '50', '960px': '70vw' }"
+  [(visible)]="showChartDialog"
+  [modal]="true"
+  [closable]="true"
+  (onHide)="showChartDialog = false">
+  <div class="justify-content-center">
+    <p-chart type="polarArea" [data]="chartData"></p-chart>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="button-wrapper">
+      <button pButton pRipple icon="pi pi-times" class="p-button-outlined" label="Chiudi" (click)="showChartDialog = false"></button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<!-- Dialog di aggiunta nuovo prodotto -->
 <app-add-product-modal [visible]="showAddProductDialog" (visibleChange)="showAddProductDialog = $event" [employees]="employees"></app-add-product-modal>
 
 <!-- Pulsanti di operatività fissati in basso a destra -->
