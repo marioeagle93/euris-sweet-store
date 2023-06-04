@@ -90,7 +90,9 @@ export class AppComponent implements OnInit {
             color: 'gray'
           }
         }
-      }
+      },
+      responsive: true,
+      maintainAspectRatio: false
     };
   }
 }
