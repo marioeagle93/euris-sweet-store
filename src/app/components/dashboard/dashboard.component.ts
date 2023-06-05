@@ -1,15 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { DefaultService } from 'src/app/api/api/default.service';
 import { STORE_ID } from '../../constants/constants';
 import { WrappedProduct } from 'src/app/api/model/wrappedProduct';
 import { MessageService } from 'primeng/api';
+import { Subscription } from 'rxjs';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   @Input() showAsGrid: boolean = false;
   @Output() productListChange = new EventEmitter<Array<WrappedProduct>>();
 
@@ -26,11 +28,22 @@ export class DashboardComponent implements OnInit {
   showDeleteProductDialog: boolean = false;
   showProductReviewsDialog: boolean = false;
   loading: boolean = false;
+  private _subscriptions = new Subscription();
 
-  constructor(private defaultService: DefaultService, private messageService: MessageService) {}
+  constructor(private defaultService: DefaultService, private messageService: MessageService, private globalService: GlobalService) {
+    this._subscriptions.add(
+      this.globalService.reloadProductListSubject.subscribe(() => {
+        this.loadProducts();
+      })
+    );
+  }
 
   ngOnInit(): void {
     this.loadProducts();
+  }
+
+  ngOnDestroy(): void {
+    this._subscriptions.unsubscribe();
   }
 
   loadProducts() {

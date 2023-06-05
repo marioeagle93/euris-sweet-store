@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { DefaultService } from 'src/app/api/api/default.service';
 import { Product } from 'src/app/api/model/product';
 import { STORE_ID } from 'src/app/constants/constants';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-add-product-modal',
@@ -42,7 +43,7 @@ export class AddProductModalComponent implements OnInit {
     }
   }
 
-  constructor(private defaultService: DefaultService, private messageService: MessageService) {}
+  constructor(private defaultService: DefaultService, private messageService: MessageService, private globalService: GlobalService) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -54,14 +55,36 @@ export class AddProductModalComponent implements OnInit {
 
   addNewProduct(): void {
     this.loading = true;
-    this.defaultService.storesIdStoreProductsPost(this.newProduct, STORE_ID).subscribe((res) => {
-      this.loading = false;
-      this.messageService.add({
-        severity: 'success',
-        life: 5000,
-        summary: 'Prodotto Creato',
-        detail: 'Il prodotto "' + this.newProduct.title + '" è stato aggiunto correttamente.'
-      });
+    this.defaultService.storesIdStoreProductsPost(this.newProduct, STORE_ID).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          life: 5000,
+          summary: 'Prodotto Creato',
+          detail: 'Il prodotto "' + this.newProduct.title + '" è stato aggiunto correttamente.'
+        });
+        this.handleAfterRequestResponse();
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          life: 5000,
+          summary: 'Errore in fase di creazione del prodotto "' + this.newProduct.title + '".'
+        });
+        this.handleAfterRequestResponse();
+      }
     });
+  }
+
+  handleAfterRequestResponse() {
+    this.loading = false;
+    this.globalService.reloadProductList();
+    this.newProduct = {
+      title: '',
+      category: '',
+      price: 0,
+      employee: '',
+      description: ''
+    };
   }
 }
